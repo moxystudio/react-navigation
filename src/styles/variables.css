@@ -1,0 +1,13 @@
+:root {
+    --color-white: #fff;
+    --color-black: #000;
+    --color-carbon-gray: #2a2927;
+    --color-beige: #cfcfc6;
+    --color-rose-gold: #b76e79;
+
+    --z-index-base: 0;
+
+    --duration-fast: 0.15s;
+    --duration-standard: 0.3s;
+    --duration-long: 0.4s;
+}

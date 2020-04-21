@@ -1,0 +1,69 @@
+@import "./variables.css";
+@import "./custom-medias.css";
+
+.react-navigation_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 6rem;
+    z-index: calc(var(--z-index-base) + 1);
+    transform: translateY(0);
+    display: flex;
+    align-items: center;
+    background-color: var(--color-rose-gold);
+    color: var(--color-black);
+    transition:
+        height var(--duration-standard),
+        transform var(--duration-standard);
+
+    &.hide {
+        transform: translateY(-110%);
+    }
+
+    &.shrink {
+        height: 4rem;
+    }
+
+    & button {
+        display: none;
+        margin-right: 25px;
+    }
+
+    & a {
+        color: inherit;
+    }
+
+    & .navbar {
+        width: 100%;
+        margin: 0 25px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & ul {
+            padding: 0;
+            display: flex;
+            list-style-type: none;
+
+            & li:not(:last-child) {
+                padding-right: 1.5rem;
+            }
+        }
+    }
+}
+
+@media (--layout-lte-small) {
+    .react-navigation_container {
+        & button {
+            display: inline-block;
+        }
+
+        & .navbar {
+            & ul {
+                display: none;
+            }
+        }
+    }
+}

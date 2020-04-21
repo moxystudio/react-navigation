@@ -1,7 +1,7 @@
 {
-  "name": "@moxy/react-lib-template",
+  "name": "@moxy/react-navigation",
   "version": "0.0.0",
-  "description": "A template that aims to make the implementation of React component packages easier and more methodic.",
+  "description": "A couple of generic React components to help you build your own navigation.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -9,18 +9,23 @@
     "es",
     "dist"
   ],
-  "homepage": "https://github.com/moxystudio/react-lib-template#readme",
-  "author": "Rui Monteiro <rui.monteiro@moxy.studio>",
+  "homepage": "https://github.com/moxystudio/react-navigation#readme",
+  "author": "Guilherme de Andrade <guilherme.andrade@moxy.studio>",
   "license": "MIT",
   "keywords": [
-    "template"
+    "react",
+    "navigation",
+    "component",
+    "drawer",
+    "navbar",
+    "backdrop"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moxystudio/react-lib-template.git"
+    "url": "git+https://github.com/moxystudio/react-navigation.git"
   },
   "bugs": {
-    "url": "https://github.com/moxystudio/react-lib-template/issues"
+    "url": "https://github.com/moxystudio/react-navigation/issues"
   },
   "scripts": {
     "build:css": "rimraf dist && postcss src/styles/**/*.css --base src/styles --dir dist",

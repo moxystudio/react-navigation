@@ -1,0 +1,29 @@
+@import "./variables.css";
+@import "./custom-medias.css";
+
+.react-navigation_drawer {
+    position: absolute;
+    width: 80vw;
+    height: 100vh;
+    z-index: calc(var(--z-index-base) + 2);
+    transform: translateX(-100%);
+    background-color: var(--color-beige);
+    transition: transform var(--duration-standard);
+
+    &.show {
+        transform: translateX(0);
+    }
+}
+
+@media (--layout-lte-xsmall) {
+    .react-navigation_drawer {
+        width: 100vw;
+        z-index: var(--z-index-base);
+        transform: translateY(calc(-100% + 5rem));
+
+        &.show {
+            /* header height */
+            transform: translateY(5rem);
+        }
+    }
+}
