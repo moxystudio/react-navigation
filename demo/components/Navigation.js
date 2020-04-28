@@ -1,32 +1,19 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Backdrop, Navbar, Drawer } from '@moxy/react-navigation';
+import { Backdrop, Navbar, Drawer, NavigationProvider } from '@moxy/react-navigation';
 import Link from 'next/link';
 
-const Navigation = ({ navigationItems }) => {
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-    const toggleDrawer = useCallback(() => {
-        document.body.style.overflow = isDrawerOpen ? 'visible' : 'hidden';
-
-        setIsDrawerOpen(!isDrawerOpen);
-    }, [isDrawerOpen]);
-
-    return (
-        <>
-            <Backdrop isDrawerOpen={ isDrawerOpen } toggleDrawer={ toggleDrawer } />
-            <Navbar
-                toggleDrawer={ toggleDrawer }
-                navigationItems={ navigationItems }
-                LinkComponent={ Link } />
-            <Drawer
-                isDrawerOpen={ isDrawerOpen }
-                toggleDrawer={ toggleDrawer }
-                LinkComponent={ Link }
-                navigationItems={ navigationItems } />
-        </>
-    );
-};
+const Navigation = ({ navigationItems }) => (
+    <NavigationProvider>
+        <Backdrop />
+        <Navbar
+            navigationItems={ navigationItems }
+            LinkComponent={ Link } />
+        <Drawer
+            LinkComponent={ Link }
+            navigationItems={ navigationItems } />
+    </NavigationProvider>
+);
 
 Navigation.propTypes = {
     navigationItems: PropTypes.arrayOf(

@@ -2,7 +2,11 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Backdrop = ({ className, isDrawerOpen, toggleDrawer }) => {
+import { useNavigation } from '../hooks';
+
+const Backdrop = ({ className }) => {
+    const { isDrawerOpen, toggleDrawer } = useNavigation();
+
     const backdropClassName = useMemo(() => classNames(
         'react-navigation__backdrop',
         { show: isDrawerOpen },
@@ -35,8 +39,6 @@ const Backdrop = ({ className, isDrawerOpen, toggleDrawer }) => {
 
 Backdrop.propTypes = {
     className: PropTypes.string,
-    isDrawerOpen: PropTypes.bool.isRequired,
-    toggleDrawer: PropTypes.func.isRequired,
 };
 
 export default Backdrop;

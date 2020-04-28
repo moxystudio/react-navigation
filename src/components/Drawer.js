@@ -4,7 +4,11 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Drawer = ({ className, isDrawerOpen, navigationItems, toggleDrawer, LinkComponent }) => {
+import { useNavigation } from '../hooks';
+
+const Drawer = ({ className, navigationItems, LinkComponent }) => {
+    const { isDrawerOpen, toggleDrawer } = useNavigation();
+
     const drawerClassName = useMemo(() => classNames(
         'react-navigation__drawer',
         { show: isDrawerOpen },
@@ -28,14 +32,12 @@ const Drawer = ({ className, isDrawerOpen, navigationItems, toggleDrawer, LinkCo
 
 Drawer.propTypes = {
     className: PropTypes.string,
-    isDrawerOpen: PropTypes.bool.isRequired,
     navigationItems: PropTypes.arrayOf(
         PropTypes.exact({
             href: PropTypes.string,
             text: PropTypes.string,
         }),
     ).isRequired,
-    toggleDrawer: PropTypes.func.isRequired,
     LinkComponent: PropTypes.func.isRequired,
 };
 

@@ -2,14 +2,16 @@ import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { useDocumentScrollThrottled } from '../hooks';
+import { useDocumentScrollThrottled, useNavigation } from '../hooks';
 
 const MINIMUM_SCROLL = 120;
 const TIMEOUT_DELAY = 400;
 
-const Navbar = ({ className, navigationItems, toggleDrawer, LinkComponent }) => {
+const Navbar = ({ className, navigationItems, LinkComponent }) => {
     const [shouldHideHeader, setShouldHideHeader] = useState(false);
     const [shouldShrinkHeader, setShouldShrinkHeader] = useState(false);
+
+    const { toggleDrawer } = useNavigation();
 
     useDocumentScrollThrottled(({ previousScrollTop, currentScrollTop }) => {
         const isScrolledDown = previousScrollTop < currentScrollTop;
@@ -62,7 +64,6 @@ Navbar.propTypes = {
             text: PropTypes.string,
         }),
     ).isRequired,
-    toggleDrawer: PropTypes.func.isRequired,
     LinkComponent: PropTypes.func.isRequired,
 };
 
