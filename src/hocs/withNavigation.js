@@ -1,25 +1,32 @@
-import React, { Component } from 'react';
+import React, { forwardRef } from 'react';
+import hoistNonReactStatics from 'hoist-non-react-statics';
 
-import { NavigationContext } from '../contexts';
+import { useNavigation } from '../hooks';
 
-const withNavigation = (WrappedComponent) => class extends Component {
-    static contextType = NavigationContext;
+const withNavigation = (WrappedComponent) => {
+    const WithNavigation = forwardRef((props, ref) => {
+        const context = useNavigation();
 
-    componentDidMount() {
-        if (!this.context) {
+        if (!context) {
             throw new Error('withNavigation must be used within a NavigationProvider');
         }
-    }
 
-    render() {
-        const { isDrawerOpen, toggleDrawer } = this.context;
+        const { isDrawerOpen, toggleDrawer } = context;
 
         return (
             <WrappedComponent
+                ref={ ref }
+                { ...props }
                 isDrawerOpen={ isDrawerOpen }
                 toggleDrawer={ toggleDrawer } />
         );
-    }
+    });
+
+    WithNavigation.displayName = `withNavigation(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
+
+    hoistNonReactStatics(WithNavigation, WrappedComponent);
+
+    return WithNavigation;
 };
 
 export default withNavigation;
