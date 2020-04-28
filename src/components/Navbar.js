@@ -23,17 +23,17 @@ const Navbar = ({ className, navigationItems, toggleDrawer, LinkComponent }) => 
     });
 
     const containerClassName = useMemo(() => classNames(
-        'react-navigation_container',
+        'react-navigation__container',
         {
-            'react-navigation_container.hide': shouldHideHeader,
-            'react-navigation_container.shrink': shouldShrinkHeader,
+            hide: shouldHideHeader,
+            shrink: shouldShrinkHeader,
         },
         className,
     ), [shouldHideHeader, shouldShrinkHeader, className]);
 
     return (
         <header className={ containerClassName }>
-            <nav className="navbar">
+            <nav className="react-navigation__navbar">
                 <div>
                     <LinkComponent href="/">
                         <a>next-with-moxy</a>

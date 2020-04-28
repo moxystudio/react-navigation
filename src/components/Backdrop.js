@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 const Backdrop = ({ className, isDrawerOpen, toggleDrawer }) => {
     const backdropClassName = useMemo(() => classNames(
-        'react-navigation_backdrop',
+        'react-navigation__backdrop',
         { show: isDrawerOpen },
         className,
     ), [className, isDrawerOpen]);

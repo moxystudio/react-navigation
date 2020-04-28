@@ -6,8 +6,8 @@ import classNames from 'classnames';
 
 const Drawer = ({ className, isDrawerOpen, navigationItems, toggleDrawer, LinkComponent }) => {
     const drawerClassName = useMemo(() => classNames(
-        'react-navigation_drawer',
-        { 'react-navigation_drawer.show': isDrawerOpen },
+        'react-navigation__drawer',
+        { show: isDrawerOpen },
         className,
     ), [className, isDrawerOpen]);
 

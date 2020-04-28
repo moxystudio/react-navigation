@@ -1,8 +1,10 @@
 @import "./variables.css";
 @import "./custom-medias.css";
 
-.react-navigation_drawer {
+.react-navigation__drawer {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 80vw;
     height: 100vh;
     z-index: calc(var(--z-index-base) + 2);
@@ -16,7 +18,7 @@
 }
 
 @media (--layout-lte-xsmall) {
-    .react-navigation_drawer {
+    .react-navigation__drawer {
         width: 100vw;
         z-index: var(--z-index-base);
         transform: translateY(calc(-100% + 5rem));

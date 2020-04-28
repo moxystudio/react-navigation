@@ -1,6 +1,6 @@
 @import "./variables.css";
 
-.react-navigation_backdrop {
+.react-navigation__backdrop {
     position: absolute;
     top: 0;
     left: 0;
@@ -11,10 +11,9 @@
     opacity: 0;
     background-color: color(var(--color-rose-gold) alpha(0.8));
     transition: opacity var(--duration-standard);
-}
 
-.show {
-    transform: translateX(0);
-    opacity: 0.1;
+    &.show {
+        transform: translateX(0);
+        opacity: 0.1;
+    }
 }
-

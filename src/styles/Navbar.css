@@ -1,7 +1,7 @@
 @import "./variables.css";
 @import "./custom-medias.css";
 
-.react-navigation_container {
+.react-navigation__container {
     position: fixed;
     top: 0;
     left: 0;
@@ -34,7 +34,7 @@
         color: inherit;
     }
 
-    & .navbar {
+    & > .react-navigation__navbar {
         width: 100%;
         margin: 0 25px;
 
@@ -55,12 +55,12 @@
 }
 
 @media (--layout-lte-small) {
-    .react-navigation_container {
+    .react-navigation__container {
         & button {
             display: inline-block;
         }
 
-        & .navbar {
+        & > .react-navigation__navbar {
             & ul {
                 display: none;
             }
