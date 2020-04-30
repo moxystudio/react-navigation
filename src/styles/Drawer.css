@@ -3,17 +3,56 @@
 
 .react-navigation__drawer {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 80vw;
-    height: 100vh;
     z-index: calc(var(--z-index-base) + 2);
-    transform: translateX(-100%);
     background-color: var(--color-beige);
     transition: transform var(--duration-standard);
 
-    &.show {
-        transform: translateX(0);
+    &.top {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 80vh;
+        transform: translateY(-100%);
+
+        &.show {
+            transform: translateY(0);
+        }
+    }
+
+    &.right {
+        top: 0;
+        right: 0;
+        width: 80vw;
+        height: 100vh;
+        transform: translateX(100%);
+
+        &.show {
+            transform: translateX(0);
+        }
+    }
+
+    &.bottom {
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 80vh;
+        transform: translateY(100%);
+
+        &.show {
+            transform: translateY(0);
+        }
+    }
+
+    &.left {
+        top: 0;
+        left: 0;
+        width: 80vw;
+        height: 100vh;
+        transform: translateX(-100%);
+
+        &.show {
+            transform: translateX(0);
+        }
     }
 }
 

@@ -6,14 +6,18 @@ import classNames from 'classnames';
 
 import { useNavigation } from '../hooks';
 
-const Drawer = ({ className, navigationItems, LinkComponent }) => {
+const Drawer = ({ className, navigationItems, LinkComponent, placement }) => {
     const { isDrawerOpen, toggleDrawer } = useNavigation();
 
-    const drawerClassName = useMemo(() => classNames(
-        'react-navigation__drawer',
-        { show: isDrawerOpen },
-        className,
-    ), [className, isDrawerOpen]);
+    const drawerClassName = useMemo(
+        () => classNames(
+            'react-navigation__drawer',
+            placement,
+            { show: isDrawerOpen },
+            className,
+        ),
+        [className, isDrawerOpen, placement],
+    );
 
     return (
         <div className={ drawerClassName }>
@@ -32,13 +36,18 @@ const Drawer = ({ className, navigationItems, LinkComponent }) => {
 
 Drawer.propTypes = {
     className: PropTypes.string,
+    LinkComponent: PropTypes.func.isRequired,
     navigationItems: PropTypes.arrayOf(
         PropTypes.exact({
             href: PropTypes.string,
             text: PropTypes.string,
         }),
     ).isRequired,
-    LinkComponent: PropTypes.func.isRequired,
+    placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+};
+
+Drawer.defaultProps = {
+    placement: 'left',
 };
 
 export default Drawer;

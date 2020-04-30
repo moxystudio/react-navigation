@@ -11,6 +11,7 @@ const Navigation = ({ navigationItems }) => (
             navigationItems={ navigationItems }
             LinkComponent={ Link } />
         <Drawer
+            placement="left"
             LinkComponent={ Link }
             navigationItems={ navigationItems } />
     </NavigationProvider>

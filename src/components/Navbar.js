@@ -28,7 +28,7 @@ const Navbar = ({ className, LinkComponent, navigationItems, placement }) => {
         () =>
             classNames(
                 'react-navigation__container',
-                [placement],
+                placement,
                 {
                     hide: shouldHideHeader,
                     shrink: shouldShrinkHeader,
@@ -38,14 +38,7 @@ const Navbar = ({ className, LinkComponent, navigationItems, placement }) => {
         [placement, shouldHideHeader, shouldShrinkHeader, className],
     );
 
-    const navbarClassName = useMemo(
-        () =>
-            classNames(
-                'react-navigation__navbar',
-                [placement],
-            ),
-        [placement],
-    );
+    const navbarClassName = useMemo(() => classNames('react-navigation__navbar', [placement]), [placement]);
 
     return (
         <div className={ containerClassName }>
