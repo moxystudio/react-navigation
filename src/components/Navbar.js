@@ -41,7 +41,7 @@ const Navbar = ({ className, LinkComponent, navigationItems, placement }) => {
     const navbarClassName = useMemo(() => classNames('react-navigation__navbar', [placement]), [placement]);
 
     return (
-        <div className={ containerClassName }>
+        <div data-testid="navbar" className={ containerClassName }>
             <nav className={ navbarClassName }>
                 <div>
                     <LinkComponent href="/">

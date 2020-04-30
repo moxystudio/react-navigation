@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="react-navigation__container top"
+    data-testid="navbar"
+  >
+    <nav
+      class="react-navigation__navbar top"
+    >
+      <div>
+        <a
+          href="/"
+        >
+          next-with-moxy
+        </a>
+      </div>
+      <ul>
+        <li>
+          <a
+            href="/lorem"
+          >
+            Lorem
+          </a>
+        </li>
+        <li>
+          <a
+            href="/ipsum"
+          >
+            Ipsum
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <button>
+      boom
+    </button>
+  </div>
+</DocumentFragment>
+`;
