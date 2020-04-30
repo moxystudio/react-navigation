@@ -25,7 +25,7 @@ NavigationProvider.propTypes = {
     children: PropTypes.node,
     value: PropTypes.exact({
         isDrawerOpen: PropTypes.bool,
-        setIsDrawerOpen: PropTypes.func,
+        toggleDrawer: PropTypes.func,
     }),
 };
 

@@ -31,6 +31,7 @@ const Backdrop = ({ className }) => {
 
     return (
         <div
+            data-testid="backdrop"
             role="none"
             className={ backdropClassName }
             onClick={ toggleDrawer } />
