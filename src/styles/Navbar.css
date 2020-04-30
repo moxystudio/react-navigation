@@ -3,31 +3,106 @@
 
 .react-navigation__container {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100px;
     z-index: calc(var(--z-index-base) + 1);
-    transform: translateY(0);
     display: flex;
     align-items: center;
     background-color: var(--color-rose-gold);
     color: var(--color-black);
     transition:
         height var(--duration-standard),
+        width var(--duration-standard),
         transform var(--duration-standard);
 
-    &.hide {
-        transform: translateY(-110%);
+    &.top {
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100px;
+
+        transform: translateY(0);
+
+        & button {
+            margin-right: 25px;
+        }
+
+        &.hide {
+            transform: translateY(-110%);
+        }
+
+        &.shrink {
+            height: 60px;
+        }
     }
 
-    &.shrink {
-        height: 4rem;
+    &.right {
+        top: 0;
+        right: 0;
+
+        width: 150px;
+        height: 100vh;
+
+        transform: translateX(0);
+
+        & button {
+            margin-button: 25px;
+        }
+
+        &.hide {
+            transform: translateX(110%);
+        }
+
+        &.shrink {
+            width: 90px;
+        }
+    }
+
+    &.bottom {
+        bottom: 0;
+        right: 0;
+
+        width: 100vw;
+        height: 150px;
+
+        transform: translateY(0);
+
+        & button {
+            margin-right: 25px;
+        }
+
+        &.hide {
+            transform: translateY(110%);
+        }
+
+        &.shrink {
+            height: 60px;
+        }
+    }
+
+    &.left {
+        top: 0;
+        left: 0;
+
+        width: 150px;
+        height: 100vh;
+
+        transform: translateX(0);
+
+        & button {
+            margin-button: 25px;
+        }
+
+        &.hide {
+            transform: translateX(-110%);
+        }
+
+        &.shrink {
+            width: 90px;
+        }
     }
 
     & button {
         display: none;
-        margin-right: 25px;
     }
 
     & a {
@@ -35,21 +110,45 @@
     }
 
     & > .react-navigation__navbar {
-        width: 100%;
-        margin: 0 25px;
-
         display: flex;
         justify-content: space-between;
         align-items: center;
 
+        &.top,
+        &.bottom {
+            width: 100%;
+            margin: 0 25px;
+            flex-direction: row;
+
+            & ul {
+                flex-direction: row;
+
+                & li:not(:last-child) {
+                    padding-right: 15px;
+                }
+            }
+        }
+
+        &.right,
+        &.left {
+            height: 100%;
+            margin: 25px auto;
+            flex-direction: column;
+
+            & ul {
+                flex-direction: column;
+
+                & li:not(:last-child) {
+                    padding-bottom: 15px;
+                }
+            }
+        }
+
         & ul {
+            margin: 0;
             padding: 0;
             display: flex;
             list-style-type: none;
-
-            & li:not(:last-child) {
-                padding-right: 1.5rem;
-            }
         }
     }
 }

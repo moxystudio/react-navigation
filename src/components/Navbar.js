@@ -7,7 +7,7 @@ import { useDocumentScrollThrottled, useNavigation } from '../hooks';
 const MINIMUM_SCROLL = 120;
 const TIMEOUT_DELAY = 400;
 
-const Navbar = ({ className, navigationItems, LinkComponent }) => {
+const Navbar = ({ className, LinkComponent, navigationItems, placement }) => {
     const [shouldHideHeader, setShouldHideHeader] = useState(false);
     const [shouldShrinkHeader, setShouldShrinkHeader] = useState(false);
 
@@ -24,18 +24,32 @@ const Navbar = ({ className, navigationItems, LinkComponent }) => {
         }, TIMEOUT_DELAY);
     });
 
-    const containerClassName = useMemo(() => classNames(
-        'react-navigation__container',
-        {
-            hide: shouldHideHeader,
-            shrink: shouldShrinkHeader,
-        },
-        className,
-    ), [shouldHideHeader, shouldShrinkHeader, className]);
+    const containerClassName = useMemo(
+        () =>
+            classNames(
+                'react-navigation__container',
+                [placement],
+                {
+                    hide: shouldHideHeader,
+                    shrink: shouldShrinkHeader,
+                },
+                className,
+            ),
+        [placement, shouldHideHeader, shouldShrinkHeader, className],
+    );
+
+    const navbarClassName = useMemo(
+        () =>
+            classNames(
+                'react-navigation__navbar',
+                [placement],
+            ),
+        [placement],
+    );
 
     return (
-        <header className={ containerClassName }>
-            <nav className="react-navigation__navbar">
+        <div className={ containerClassName }>
+            <nav className={ navbarClassName }>
                 <div>
                     <LinkComponent href="/">
                         <a>next-with-moxy</a>
@@ -52,19 +66,24 @@ const Navbar = ({ className, navigationItems, LinkComponent }) => {
                 </ul>
             </nav>
             <button onClick={ toggleDrawer }>boom</button>
-        </header>
+        </div>
     );
 };
 
 Navbar.propTypes = {
     className: PropTypes.string,
+    LinkComponent: PropTypes.func.isRequired,
     navigationItems: PropTypes.arrayOf(
         PropTypes.exact({
             href: PropTypes.string,
             text: PropTypes.string,
         }),
     ).isRequired,
-    LinkComponent: PropTypes.func.isRequired,
+    placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+};
+
+Navbar.defaultProps = {
+    placement: 'top',
 };
 
 export default Navbar;

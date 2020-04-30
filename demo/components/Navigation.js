@@ -7,6 +7,7 @@ const Navigation = ({ navigationItems }) => (
     <NavigationProvider>
         <Backdrop />
         <Navbar
+            placement="top"
             navigationItems={ navigationItems }
             LinkComponent={ Link } />
         <Drawer
