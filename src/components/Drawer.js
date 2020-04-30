@@ -20,7 +20,7 @@ const Drawer = ({ className, navigationItems, LinkComponent, placement }) => {
     );
 
     return (
-        <div className={ drawerClassName }>
+        <div data-testid="drawer" className={ drawerClassName }>
             <ul>
                 {navigationItems.map(({ href, text }, idx) => (
                     <li key={ idx } onClick={ toggleDrawer }>
