@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar Component should render correctly 1`] = `
+<DocumentFragment>
+  <nav
+    class="react-navigation_navbar react-navigation_navbar-top"
+  >
+    <p>
+      Custom Navbar.
+    </p>
+  </nav>
+</DocumentFragment>
+`;
+
+exports[`Navbar Component should render correctly with hideOnScrollDown behaviour 1`] = `
+<DocumentFragment>
+  <nav
+    class="react-navigation_navbar react-navigation_navbar-top react-navigation_navbar-hideOnScrollDown-visible"
+  >
+    <p>
+      Custom Navbar.
+    </p>
+  </nav>
+</DocumentFragment>
+`;
+
+exports[`Navbar Component should render correctly with hideOnScrollDown behaviour and scrolled down 1`] = `
+<DocumentFragment>
+  <nav
+    class="react-navigation_navbar react-navigation_navbar-top react-navigation_navbar-hideOnScrollDown-hidden"
+  >
+    <p>
+      Custom Navbar.
+    </p>
+  </nav>
+</DocumentFragment>
+`;

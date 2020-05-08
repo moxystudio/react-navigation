@@ -1,0 +1,14 @@
+.navbar {
+    height: 100px;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.drawer {
+    background-color: red;
+    padding: 20px;
+}
