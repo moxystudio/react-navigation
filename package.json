@@ -1,6 +1,6 @@
 {
   "name": "@moxy/react-navigation",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Set of react components, hooks and providers to easily kickoff a navigation environment in web projects.",
   "main": "lib/index.js",
   "module": "es/index.js",
