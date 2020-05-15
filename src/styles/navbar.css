@@ -1,0 +1,60 @@
+.react-navigation_navbar {
+    position: fixed;
+}
+
+/* ==========================================================================
+  Placement
+  ========================================================================== */
+
+.react-navigation_navbar-top {
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    &.react-navigation_navbar-hideOnScrollDown-hidden {
+        transform: translate(0, -100%);
+    }
+}
+
+.react-navigation_navbar-right {
+    height: 100%;
+    top: 0;
+    right: 0;
+
+    &.react-navigation_navbar-hideOnScrollDown-hidden {
+        transform: translate(100%, 0);
+    }
+}
+
+.react-navigation_navbar-bottom {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+
+    &.react-navigation_navbar-hideOnScrollDown-hidden {
+        transform: translate(0, 100%);
+    }
+}
+
+.react-navigation_navbar-left {
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    &.react-navigation_navbar-hideOnScrollDown-hidden {
+        transform: translate(-100%, 0);
+    }
+}
+
+/* ==========================================================================
+  HideOnScrollDown Behaviour
+  ========================================================================== */
+
+.react-navigation_navbar-hideOnScrollDown-visible,
+.react-navigation_navbar-hideOnScrollDown-hidden {
+    transition: transform 0.3s ease;
+}
+
+.react-navigation_navbar-hideOnScrollDown-visible {
+    transform: translate(0, 0);
+}

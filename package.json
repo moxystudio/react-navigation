@@ -1,7 +1,7 @@
 {
-  "name": "@moxy/react-lib-template",
+  "name": "@moxy/react-navigation",
   "version": "0.0.0",
-  "description": "A template that aims to make the implementation of React component packages easier and more methodic.",
+  "description": "Set of react components, hooks and providers to easily kickoff a navigation environment in web projects.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -9,20 +9,25 @@
     "es",
     "dist"
   ],
-  "homepage": "https://github.com/moxystudio/react-lib-template#readme",
+  "homepage": "https://github.com/moxystudio/react-navigation#readme",
   "author": "Rui Monteiro <rui.monteiro@moxy.studio>",
   "license": "MIT",
   "keywords": [
-    "template"
+    "react",
+    "navigation",
+    "drawer",
+    "navbar",
+    "header"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moxystudio/react-lib-template.git"
+    "url": "git+https://github.com/moxystudio/react-navigation.git"
   },
   "bugs": {
-    "url": "https://github.com/moxystudio/react-lib-template/issues"
+    "url": "https://github.com/moxystudio/react-navigation/issues"
   },
   "scripts": {
+    "dev": "onchange -i -k  \"src\" -- npm run build",
     "build:css": "rimraf dist && postcss src/styles/**/*.css --base src/styles --dir dist",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src -d lib --delete-dir-on-start",
     "build:es": "cross-env BABEL_ENV=es babel src -d es --delete-dir-on-start",
@@ -39,6 +44,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "hoist-non-react-statics": "^3.3.2",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
@@ -59,6 +65,8 @@
     "husky": "^4.0.10",
     "jest": "^25.2.6",
     "lint-staged": "^10.0.2",
+    "lodash": "^4.17.15",
+    "onchange": "^7.0.1",
     "postcss-cli": "^7.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

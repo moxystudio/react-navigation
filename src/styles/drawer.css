@@ -1,0 +1,73 @@
+.react-navigation_drawer {
+    position: fixed;
+    transition: transform 0.3s ease;
+
+    &[data-open="true"] {
+        transform: translate(0, 0);
+    }
+}
+
+/* ==========================================================================
+  Placement
+  ========================================================================== */
+
+.react-navigation_drawer-top {
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    &[data-open="false"] {
+        transform: translate(0, -100%);
+    }
+}
+
+.react-navigation_drawer-right {
+    height: 100%;
+    top: 0;
+    right: 0;
+
+    &[data-open="false"] {
+        transform: translate(100%, 0);
+    }
+}
+
+.react-navigation_drawer-bottom {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+
+    &[data-open="false"] {
+        transform: translate(0, 100%);
+    }
+}
+
+.react-navigation_drawer-left {
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    &[data-open="false"] {
+        transform: translate(-100%, 0);
+    }
+}
+
+/* ==========================================================================
+  Overlay
+  ========================================================================== */
+
+.react-navigation_drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    &[data-open="true"] {
+        opacity: 0.5;
+        pointer-events: auto;
+    }
+}

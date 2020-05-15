@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withNavigation HOC should provide navigation 1`] = `
+<DocumentFragment>
+  {"drawer":{"isOpen":"false","toggle":"function","open":"function","close":"function"}}
+</DocumentFragment>
+`;

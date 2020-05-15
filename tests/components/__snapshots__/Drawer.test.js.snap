@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer Component should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="react-navigation_drawer-overlay"
+    data-open="false"
+    data-placement="left"
+  />
+  <div
+    class="react-navigation_drawer react-navigation_drawer-left"
+    data-open="false"
+    data-placement="left"
+  >
+    <p>
+      Custom Drawer.
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Drawer Component should render correctly when overlay is clicked 1`] = `
+<DocumentFragment>
+  <div
+    class="react-navigation_drawer-overlay"
+    data-open="false"
+    data-placement="left"
+  />
+  <div
+    class="react-navigation_drawer react-navigation_drawer-left"
+    data-open="false"
+    data-placement="left"
+  >
+    <p>
+      Custom Drawer.
+    </p>
+  </div>
+</DocumentFragment>
+`;
