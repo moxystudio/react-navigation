@@ -2,6 +2,9 @@
 
 exports[`Drawer Component should render correctly 1`] = `
 <DocumentFragment>
+  <button>
+    Toggle
+  </button>
   <div
     class="react-navigation_drawer-overlay"
     data-open="false"
@@ -21,6 +24,9 @@ exports[`Drawer Component should render correctly 1`] = `
 
 exports[`Drawer Component should render correctly when overlay is clicked 1`] = `
 <DocumentFragment>
+  <button>
+    Toggle
+  </button>
   <div
     class="react-navigation_drawer-overlay"
     data-open="false"
