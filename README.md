@@ -88,7 +88,7 @@ Import the styleguide base styles in the app's entry CSS file:
 import '@moxy/react-navigation/dist/index.css';
 ```
 
-### Router events
+### Handling router events
 
 Taking `MyNavigationHelper` component as example:
 
