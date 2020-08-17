@@ -32,6 +32,8 @@ By analysing a few projects, most of the logic was identical in every single one
 
 A concern that came from the proposed solution was that every single website has different designs for a navbar or a drawer. Although this is true, their behaviour is usually the same. So, the solution should only deal with logic and behaviours while giving total freedom of the content that is rendered.
 
+⚠️ **Note:** If you are using this package with `[@moxy/next-layout](https://github.com/moxystudio/next-layout)`, where `Layout` components don't unmount on each page change, beware you will have to listen to router events to make sure the drawer closes even if the page change is triggered by the browser's history buttons. See [Handling router events](#handling-router-events) section to check how it can be done in Next.js projects.
+
 ## Usage
 
 ```js
@@ -40,7 +42,7 @@ import { NavigationProvider, Navbar, Drawer, useNavigation } from '@moxy/react-n
 
 const MyNavigationHelper = () => {
     const { drawer } = useNavigation();
-    
+
     return (
         <>
             <span>{ `Is Drawer Open?  ${drawer.isOpen}` }</span>
@@ -85,6 +87,50 @@ Import the styleguide base styles in the app's entry CSS file:
 ```js
 import '@moxy/react-navigation/dist/index.css';
 ```
+
+### Handling router events
+
+Taking `MyNavigationHelper` component as example:
+
+```js
+import { useRouter } from 'next/router';
+
+const MyNavigationHelper = () => {
+    const router = useRouter();
+
+    const {
+        drawer: {
+            open: openDrawer,
+            close: closeDrawer,
+            toggle: toggleDrawer,
+            isOpen: isDrawerOpen,
+        }
+    } = useNavigation();
+
+    useEffect(() => {
+        const handleRouteChange = () => {
+            closeDrawer();
+        };
+
+        router.events.on('routeChangeStart', handleRouteChange);
+
+        return () => {
+            router.events.off('routeChangeStart', handleRouteChange);
+        };
+    }, [closeDrawer, router.events]);
+
+    return (
+        <>
+            <span>{ `Is Drawer Open?  ${isDrawerOpen}` }</span>
+            <button onClick={ openDrawer }>Open Drawer</button>
+            <button onClick={ closeDrawer }>Close Drawer</button>
+            <button onClick={ toggleDrawer }>Toggle Drawer</button>
+        </>
+    );
+}
+```
+
+We are listening to `routeChangeStart` event for the sake of this example. You can check [here](https://nextjs.org/docs/api-reference/next/router#routerevents) a complete list of the supported events for the Next.js Router.
 
 ## Styling
 
@@ -181,6 +227,12 @@ The placement of the drawer in relation to the viewport.
 Type: `boolean` | Default: `true`
 
 An overlay that renders together with the drawer. When clicked, closes the drawer.
+
+#### lockBodyScroll
+
+Type: `boolean` | Default: `true`
+
+Disables body scroll whenever the drawer is open. It keeps the drawer scroll if needed.
 
 #### className
 

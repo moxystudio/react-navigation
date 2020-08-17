@@ -43,6 +43,7 @@
     "react-dom": "^16.8.0"
   },
   "dependencies": {
+    "body-scroll-lock": "^3.0.3",
     "classnames": "^2.2.6",
     "hoist-non-react-statics": "^3.3.2",
     "prop-types": "^15.7.2"
