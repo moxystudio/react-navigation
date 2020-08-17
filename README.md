@@ -32,7 +32,7 @@ By analysing a few projects, most of the logic was identical in every single one
 
 A concern that came from the proposed solution was that every single website has different designs for a navbar or a drawer. Although this is true, their behaviour is usually the same. So, the solution should only deal with logic and behaviours while giving total freedom of the content that is rendered.
 
-⚠️ **Note:** If you are using this package on a `Layout` component that doesn't unmount/remount on each page change, you will probably need to listen to router events so that you make sure you close the drawer even if the page change is triggered by the browser history buttons. See [Router Events](#router-events) section to check how it can be done for Next.js projects.
+⚠️ **Note:** If you are using this package with `[@moxy/next-layout](https://github.com/moxystudio/next-layout)`, where `Layout` components don't unmount on each page change, beware you will have to listen to router events to make sure the drawer closes even if the page change is triggered by the browser's history buttons. See [Handling router events](#handling-router-events) section to check how it can be done in Next.js projects.
 
 ## Usage
 
