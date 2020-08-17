@@ -130,7 +130,7 @@ const MyNavigationHelper = () => {
 }
 ```
 
-We are listening `routeChangeStart` event for the sake of this example. You can check [here](https://nextjs.org/docs/api-reference/next/router#routerevents) a complete list of the supported events for the Next.js Router.
+We are listening to `routeChangeStart` event for the sake of this example. You can check [here](https://nextjs.org/docs/api-reference/next/router#routerevents) a complete list of the supported events for the Next.js Router.
 
 ## Styling
 
