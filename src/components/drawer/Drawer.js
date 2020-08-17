@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 import { useNavigation } from '../../hooks';
 
@@ -31,8 +31,12 @@ const Drawer = ({
         }
     }, [drawer.isOpen, lockBodyScroll]);
 
-    useEffect(() => () => {
-        clearAllBodyScrollLocks();
+    useEffect(() => {
+        const drawer = drawerRef.current;
+
+        return () => {
+            enableBodyScroll(drawer);
+        };
     }, []);
 
     const handleOverlayClick = useCallback(() => {

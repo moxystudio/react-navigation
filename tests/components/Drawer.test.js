@@ -50,27 +50,45 @@ describe('Drawer Component', () => {
     });
 
     it('should disable/enable body scroll when drawer is toggled', () => {
-        const { getByRole } = renderWithProps();
+        const { container, getByRole } = renderWithProps();
+
         const triggerButton = getByRole('button');
+        const drawer = container.querySelector('.react-navigation_drawer');
 
-        expect(enableBodyScroll).toHaveBeenCalled();
-
-        fireEvent.click(triggerButton);
-
-        expect(disableBodyScroll).toHaveBeenCalled();
+        expect(enableBodyScroll).toHaveBeenCalledWith(drawer);
 
         fireEvent.click(triggerButton);
 
-        expect(enableBodyScroll).toHaveBeenCalled();
+        expect(disableBodyScroll).toHaveBeenCalledWith(drawer);
+
+        fireEvent.click(triggerButton);
+
+        expect(enableBodyScroll).toHaveBeenCalledWith(drawer);
     });
 
     it('should not disable body scroll when lockBodyScroll prop is false', () => {
         const { getByRole } = renderWithProps({ lockBodyScroll: false });
         const triggerButton = getByRole('button');
 
+        expect(enableBodyScroll).not.toHaveBeenCalled();
+
         fireEvent.click(triggerButton);
 
-        expect(disableBodyScroll).toHaveBeenCalledTimes(0);
-        expect(enableBodyScroll).toHaveBeenCalledTimes(0);
+        expect(disableBodyScroll).not.toHaveBeenCalled();
+    });
+
+    it('should enable back body scroll whenever the component is unmounted', () => {
+        const { container, getByRole, unmount } = renderWithProps();
+
+        const triggerButton = getByRole('button');
+        const drawer = container.querySelector('.react-navigation_drawer');
+
+        fireEvent.click(triggerButton);
+
+        expect(disableBodyScroll).toHaveBeenCalledWith(drawer);
+
+        unmount();
+
+        expect(enableBodyScroll).toHaveBeenCalledWith(drawer);
     });
 });
